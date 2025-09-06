@@ -6,11 +6,10 @@ const path = require('path');
 
 const [subject, destination] = process.argv.slice(2);
 
-let fileName;
+const fileName = path.basename(subject);
 let destinationIsDirectory = false;
 
 try {
-  fileName = path.basename(subject);
   destinationIsDirectory = fsCb.statSync(destination).isDirectory();
 } catch (error) {}
 
